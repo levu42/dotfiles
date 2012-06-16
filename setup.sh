@@ -7,7 +7,7 @@ chsh -s /bin/zsh
 # archiving system
 mkdir .archive
 mkdir archive
-crontab -l > .curcrontab
+crontab -l > .curcrontab 2> /dev/null
 echo "55 23 * * * $HOME/.archive.sh" >> .curcrontab
 crontab .curcrontab
 rm .curcrontab
