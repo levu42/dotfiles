@@ -19,8 +19,9 @@ git config --global user.email $mail
 echo ""
 echo ""
 
+rm initialsetup.sh
+
 git init
 git remote add origin git://github.com/levu42/dotfiles.git
 git pull origin master
 
-rm initialsetup.sh
