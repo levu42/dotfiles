@@ -21,6 +21,6 @@ echo ""
 
 git init
 git remote add origin git://github.com/levu42/dotfiles.git
-git pull origin
+git pull origin master
 
 rm initialsetup.sh
