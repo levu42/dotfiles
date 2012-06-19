@@ -7,7 +7,7 @@ git_branch() {
 }
 
 git_dirty() {
-  st=$(/usr/bin/git status -u no 2>/dev/null | tail -n 1)
+  st=$(/usr/bin/git status -uno 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
     echo ""
@@ -49,7 +49,17 @@ git_disable() {
 }
 
 git_prompt() {
-    if [[ $nogit == 1 ]]
+    disabled=$nogit
+    if [[ $disabled == 2 ]]
+      then
+        if [[ $(pwd) == "$HOME" ]]
+          then
+            disabled=1
+          else
+            disabled=0
+        fi
+    fi
+    if [[ $disabled == 1 ]]
       then
         echo ""
       else 
