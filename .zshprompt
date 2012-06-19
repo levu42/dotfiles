@@ -7,7 +7,7 @@ git_branch() {
 }
 
 git_dirty() {
-  st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
+  st=$(/usr/bin/git status -u no 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
     echo ""
