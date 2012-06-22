@@ -8,7 +8,7 @@ git_branch() {
 
 git_dirty() {
   st=$(/usr/bin/git status -uno 2>/dev/null | tail -n 1)
-	remote=$(git remote -v | grep origin | grep push | awk '{print $2}')
+	remote=$(git remote -v 2>/dev/null | grep origin | grep push | awk '{print $2}')
 	if [[ $remote == "" ]]
 	then
 	else
