@@ -8,15 +8,22 @@ git_branch() {
 
 git_dirty() {
   st=$(/usr/bin/git status -uno 2>/dev/null | tail -n 1)
+	remote=$(git remote -v | grep origin | grep push | awk '{print $2}')
+	if [[ $remote == "" ]]
+	then
+	else
+		remote=$(echo "$remote" | sed -e 's-git@github.com:/--')
+		remote="$remote:"
+	fi
   if [[ $st == "" ]]
   then
     echo ""
   else
     if [[ $st == "nothing to commit (use -u to show untracked files)" ]]
     then
-      echo -n "%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
+      echo -n "$remote%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
     else
-      echo -n "%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+      echo -n "$remote%{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
     fi
   fi
 }
