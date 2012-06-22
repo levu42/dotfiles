@@ -1,11 +1,15 @@
 set nocompatible
 set nu
 set numberwidth=6
-set smartindent 
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
+"set smartindent 
+if has("autocmd")
+	filetype plugin indent on
+endif
+set tabstop=2
+" set expandtab
+set shiftwidth=2
+" set softtabstop=4
+set pastetoggle=<F5>
 set wildmenu
 set gdefault
 set encoding=utf-8 nobomb
@@ -24,6 +28,7 @@ set title
 set showcmd
 set scrolloff=5
 set sidescrolloff=10
+set showtabline=2
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Hide search highlighting
@@ -31,10 +36,10 @@ map <Leader>h :set invhls <CR>
 
 " Automatic commands
 if has("autocmd")
-    " Enable file type detection
-    filetype on
-    " Treat .json files as .js
-    autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
 
 
@@ -53,3 +58,4 @@ function! CleverTab()
   endif
 endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
+
