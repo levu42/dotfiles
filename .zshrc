@@ -21,7 +21,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 # End of lines configured by zsh-newuser-install
 if [[ "$nogit" == "" ]]
   then 

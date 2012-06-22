@@ -1,2 +1,2 @@
 #!/bin/bash
-ffmpeg -i $1 -vn -ab 256 "$1.ogg"
+ffmpeg -i $1 -vn -ab 128k -acodec libvorbis "$1.ogg"
