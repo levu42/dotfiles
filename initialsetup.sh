@@ -15,6 +15,7 @@ echo -n "git mail? "
 read mail
 git config --global user.name $name
 git config --global user.email $mail
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
 echo ""
 echo ""

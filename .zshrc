@@ -18,8 +18,8 @@ setopt PROMPT_SUBST
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=100000
+SAVEHIST=100000
 setopt appendhistory autocd
 #setopt SHARE_HISTORY
 # End of lines configured by zsh-newuser-install
@@ -47,7 +47,11 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias scrre='screen -RAaD'
+alias ips='ipstatus'
+alias ipstatus="echo 'ip a'; echo ''; ip a; echo ''; echo 'ip r'; echo ''; ip r; echo ''; echo 'brctl show'; echo ''; brctl show; echo ''; echo 'ping 8.8.8.8'; echo ''; ping 8.8.8.8"
 #precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+
+vigrep () {grep -Ril $1 . | xargs vim -p; }
 
 if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
