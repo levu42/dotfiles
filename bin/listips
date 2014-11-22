@@ -1,0 +1,28 @@
+#!/usr/bin/php
+<?php
+	$ipa = shell_exec('ip a');
+	$interfaceips = [];
+	$lines = explode("\n", $ipa);
+	$curifname = '';
+	foreach ($lines as $l) {
+		if (preg_match('/^\d+:/', $l)) {
+			$curifname = substr($l, strpos($l, ':')+2);
+			$curifname = substr($curifname, 0, strpos($curifname, ':'));
+		}
+		if (preg_match('/^\s+inet\s+/', $l)) {
+			if ($curifname != 'lo') {
+				$curip = substr($l, strpos($l, 'inet')+5);
+				$curip = substr($curip, 0, strpos($curip, '/'));
+				$interfaceips[$curifname] = $curip;
+			}
+		}
+	}
+	$first = true;
+	foreach ($interfaceips as $if => $ip) {
+		if (!$first) {
+			echo ", ";
+		} else {
+			$first = false;
+		}
+		echo "$if: $ip";
+	}

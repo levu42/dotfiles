@@ -28,7 +28,8 @@ if [[ "$nogit" == "" ]]
     nogit=2
 fi
 source ~/.zshprompt
-PROMPT=$'%F{5}[%*] %F{green}%n%F{white}@%F{5}%m%F{3} %~%F{8}$(git_prompt)$ %f'
+PROMPT=$'%F{5}[%*] %F{green}%n%F{white}@%F{5}%m[$(listips)]%F{3} %~%F{8}$(git_prompt)$ %f'
+#PROMPT=$'%F{5}[%*] %F{green}%n%F{white}@%F{5}%m%F{3} %~%F{8}$(git_prompt)$ %f'
 #PROMPT=$'%F{5}[%*] %F{green}%n%F{white}@%F{5}%m%F{3} %~%F{8}$ %f'
 # echo %k{0}
 \clear
